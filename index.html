@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Grouper</title>
+</head>
+<body>
+    <div class="menuBox">
+        <input type="number" id="total" placeholder="Enter Number of People">
+        <input type="number" id="group" placeholder="Enter Number of Group">
+        <button onclick="start()">Done</button>
+        <button onclick="generate()" disabled class="important">Reroll</button>
+    </div>
+    <div class="menuBox searchBox">
+        <input type="number" class="input important" placeholder="Enter Number To Search" disabled>
+        <button class="important" onclick="search()" disabled>Search</button>
+    </div>
+    <section class="groups-container" id="toSave">
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>

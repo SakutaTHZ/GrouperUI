@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<title>Document</title>
+	<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+	<div class="main">
+		<div class="firstPhase Phase show">
+			<h1>Seperator /-\</h1>
+			<p id="description"> A simple tool to seperate amount into groups</p>
+			<input type="number" id="input1" min="4" placeholder="Enter Total Amount">
+			<button id="start" onclick="start()">Start</button>
+		</div>
+		<div class="secondPhase Phase hide">
+			<div class="header">
+				<input type="number" id="input2" min="4" placeholder="Enter Total Rows">
+				<button id="start" onclick="Generate()">Generate</button>
+			</div>
+			<div class="boxes"></div>
+			<div class="leftBox"></div>
+			<div class="rightBox"></div>
+			<div class="utils">
+				<div class="normal">
+					<div class="search">
+						<h1>Search For Number</h1><br>
+						<input type="number" id="searchInput" placeholder="Enter Number To Search">
+						<button id="start" onclick="search(this)">Search</button><br><br>
+						<h2>Re-roll</h2>
+						<button id="start" onclick="reRoll()">ReRoll</button>
+					</div>
+					<div class="modes">
+						<b>Modes To Choose - </b>
+						<select id="mode" onchange="modeHandler(this)" title="Generate First!" disabled>
+							<option value="normal">normal</option>
+							<option value="match">match</option>
+						</select>
+					</div>
+				</div>
+				<div class="match">
+					<b>Match boxes</b>
+					<br>
+					<button id="start" onclick="GoBack()">Go Back</button>
+				</div>
+			</div>
+			<div class="matchResult">
+				<button id="start" onclick="Match()">Match</button><br>
+				<b>Matched Result</b>
+				<div class="result"></div>
+			</div>
+		</div>
+	</div>
+	<script src='utils.js'></script>
+	<script src='main.js'></script>
+</body>
+</html>

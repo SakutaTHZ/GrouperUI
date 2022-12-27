@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s ease-in-out;
+    font-family: 'Andika', sans-serif;
+}
+:root{
+    --hoverColor:rgb(52, 211, 255);
+    --searchedColor: rgb(255, 208, 52);
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background: black;
+    overflow-x: hidden;
+}
+.groups-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background: black;
+    flex-direction: column;
+    padding: 50px 0;
+}
+/* border needs to be fixed */
+.group-container{
+    position: relative;
+    border: 3px solid var(--color);
+    background: rgba(128, 128, 128, 0.1);
+    border-radius: 10px;
+    width: 80%;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    padding: 30px 10px;
+    margin: 10px 0;
+    animation: 1s transition-up linear;
+}
+@keyframes transition-up{
+    0%{
+        opacity: 0%;
+        transform: translatex(-1000px) scale(0);
+    }
+    100%{
+        opacity: 100%;
+        transform: translatex(0px) scale(1);
+    }
+}
+.group-container::after{
+    content: attr(data-groupname);
+    position: absolute;
+    color: white;
+    font-size: 1em;
+    left: -35px;
+    top: 0px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+.data-box{
+    width: 75px;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    border-radius: 5px;
+    transition: 2s ease-in-out;
+}
+.data-box:hover{
+    transform: scale(1.1);
+    border: 3px solid var(--color);
+    color: var(--color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--color),inset 0 0 10px var(--color);
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.searched{
+    transform: scale(1.1);
+    color: var(--color);
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--color),inset 0 0 10px var(--color);
+    animation: 3s searchFound linear infinite;
+}
+@keyframes searchFound {
+    0%,100%{
+        box-shadow: 0 0 20px var(--color),inset 0 0 20px var(--color);
+    }
+    25%,75%{
+        box-shadow: 0 0 10px var(--color),inset 0 0 10px var(--color);
+    }
+    50%{
+        box-shadow: 0 0 5px var(--color),inset 0 0 5px var(--color);
+    }
+}
+
+.menuBox{
+    position: fixed;
+    top: 0;
+    padding: 10px;
+    background: rgba( 0, 0, 0, 0.25 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 0 0 10px 10px;
+    z-index: 1000;
+}
+.menuBox>input{
+    background:transparent;
+    border: 0;
+    border: 1px solid rgba( 255, 255, 255, 0.75 );
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+.menuBox>input:focus{
+    outline: 2px solid white;
+}
+.menuBox>button{
+    padding: 5px;
+    min-width: 50px;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.menuBox>button:hover{
+    color: var(--hoverColor);
+    border: 2px solid var(--hoverColor);
+    box-shadow: 0 0 10px var(--hoverColor),inset 0 0 10px var(--hoverColor);
+}
+
+.searchBox{
+    position: fixed;
+    left: -275px;
+}
+.searchBox::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0 0 10px 0;
+    top: 0;
+    right: -20px;
+}
+.searchBox:hover,.searchBox:focus{
+    left: 0px;
+}
+/* .save{
+    position: fixed;
+    left: 0;
+} */
+
+:disabled{
+    opacity: 50%;
+}
+
+canvas{
+    position: absolute;
+    background: orange;
+}
